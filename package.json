@@ -1,0 +1,48 @@
+{
+  "name": "photobook-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Make print-ready KDP photo books (interior + cover PDFs) from your photos \u2014 Immich, Google Photos, iCloud shared albums, or drag & drop.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:web": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc -b && vite build",
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@expo-google-fonts/caveat": "^0.4.2",
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@expo-google-fonts/lora": "^0.4.2",
+    "@expo-google-fonts/playfair-display": "^0.4.2",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "exifr": "^7.1.3",
+    "express": "^5.3.0",
+    "heic2any": "^0.0.4",
+    "idb-keyval": "^6.3.0",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "playwright-core": "^1.64.1",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  }
+}
